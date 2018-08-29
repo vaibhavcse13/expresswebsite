@@ -2,9 +2,9 @@
 
 ## This website is created for learning purpose .By following the course material on lynda from Ray Villalobos . 
 ## In this project the website is made by using 
-1.### Node 
-2.### Express 
-3.### EJS templating engine 
+1. ### Node 
+2. ### Express 
+3. ### EJS templating engine 
 
 #### During the development , the automation tool used are-  
 1. ##### Nodemon to restart the server 
