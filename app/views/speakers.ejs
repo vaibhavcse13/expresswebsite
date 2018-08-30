@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include partials/template/head.ejs %>
+  </head>
+  <body id= "<%= pageId %>">
+    <!-- header from header template -->
+    <% include partials/template/header.ejs %>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+          <!--Main Content -->
+          <% include partials/content/speakerlist.ejs %>
+        </div><!-- primary -->
+        <aside class="col-sm-4">
+
+          <% include partials/content/artworks.ejs %>
+        </aside><!-- secondary -->
+      </div>
+    </div><!-- container -->
+    <% include partials/template/jsDefault.ejs %>
+  </body>
+</html>
