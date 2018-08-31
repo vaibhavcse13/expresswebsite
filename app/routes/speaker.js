@@ -16,17 +16,20 @@ router.get('/speakers' , (req , res) => {
     });
 
 });
-router.get('/speaker/:speakerid' , (req , res) => {
+router.get('/speakers/:speakerid' , (req , res) => {
     let data = req.app.get('appData')
-    let speaker =  data.speakers[req.params.speakerid];
-    res.send(`
-    <link rel="stylesheet" type="text/css" href="/css/style.css" >
-    <h1>Roux Academy</h1>  
-                <li><h2>${speaker.name}</h2>
-                <img  src="/images/speakers/${speaker.shortname}_tn.jpg" alt="speaker" /> 
-            <h2>${speaker.summary}</h2></li>
-            <script src="/reload/reload.js"></script>
-            `);
+    let index = data.speakers.findIndex((element) => {
+        return element.shortname === req.params.speakerid
+    }); 
+    
+    let speaker =  data.speakers[index];
+
+    res.render('speakers' , {
+        pageTitle : speaker.name ,
+        artwork : speaker.artwork,
+        pageId : speaker.shortname,
+        speakers : [speaker]
+    })
 
 });
 
