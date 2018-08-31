@@ -22,6 +22,7 @@ router.get('/speakers/:speakerid' , (req , res) => {
         return element.shortname === req.params.speakerid
     }); 
     
+    
     let speaker =  data.speakers[index];
 
     res.render('speakers' , {
