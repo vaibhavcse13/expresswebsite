@@ -11,6 +11,8 @@ app.locals.siteTitle = "Roux Meetup";
 app.locals.allSpeakers =  data.speakers;
 app.use(require('./routes/speaker'));
 app.use(require('./routes/index'));
+app.use(require('./routes/feedback'));
+app.use(require('./routes/api'));
 app.use(express.static('app/public'));
 
 
