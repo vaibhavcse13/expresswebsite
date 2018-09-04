@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const data = require('./data/data.json');
 const reload = require('reload');
+const io = require('socket.io')();
+
 //  creating route for speaker 
 
 app.set('appData' , data);
@@ -17,8 +19,23 @@ app.use(require('./routes/chat'));
 app.use(express.static('app/public'));
 
 
- app.listen(3000 , () =>{
+ let server = app.listen(3000 , () =>{
     console.log(`Application is running at port 3000 ..`);
 });
+// attaching the socket io with server 
+
+io.attach(server);
+
+// detecting the event 
+io.on('connection' , (socket) => {
+    console.log('user connected');
+
+    socket.on('postMessage' , (data) => {
+        io.emit('updateMessage' , data);
+
+    })
+});
+
+
 
 reload( app);
